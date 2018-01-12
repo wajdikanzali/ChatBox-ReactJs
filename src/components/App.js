@@ -23,11 +23,17 @@ class App extends React.Component {
 	};
 
 	render(){
+
+		const messages = Object
+		  .keys(this.state.messages)
+		  .map(key => <Message key={key} details={this.state.messages[key]} />)
+		;
+
 		return (
 			<div className="box">
 			 <div>
 			 	<div className="messages">
-			 	 <Message pseudo={this.props.params.pseudo}/>
+			 	 {messages}
 			 	</div>
 			 	<Formulaire addMessage={this.addMessage} pseudo={this.props.params.pseudo} length="140"/>
 			 </div>
