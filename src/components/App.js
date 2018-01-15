@@ -4,6 +4,7 @@ import React from 'react';
 //Components
 import Formulaire from './Formulaire';
 import Message from './Message';
+import base from '../base';
 
 class App extends React.Component {
 
@@ -11,6 +12,13 @@ class App extends React.Component {
 	state = {
 		messages: {}
 	};
+
+	componentWillMount() {
+		this.ref = base.syncState('/', {
+			context: this,
+			state: 'messages'
+		});
+	}
 
 	addMessage = message => {
 		// Copier le state
