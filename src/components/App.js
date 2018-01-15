@@ -66,11 +66,15 @@ class App extends React.Component {
 			 		{messages}
 			 	</ReactCSSTransitionGroup>
 			 	</div>
-			 	<Formulaire addMessage={this.addMessage} pseudo={this.props.params.pseudo} length="140"/>
+			 	<Formulaire addMessage={this.addMessage} pseudo={this.props.params.pseudo} length={140}/>
 			 </div>
 			</div>
 		)
 	}
+
+	static propTypes = {
+		params: React.PropTypes.object.isRequired
+	};
 }
 
 export default App;
